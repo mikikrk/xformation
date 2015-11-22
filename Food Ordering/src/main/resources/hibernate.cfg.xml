@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+  "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+    <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/foodordering</property>
+    <property name="hibernate.connection.username">xformation</property>
+    <property name="hibernate.connection.password">formation</property>
+    <property name="hbm2ddl.auto">create</property>
+    <property name="hbm2ddl.import_files">initial_data.sql</property>
+    <property name="connection.pool_size">1</property>
+
+    <mapping resource="hbn-mappings/Cuisine.hbm.xml"/>
+    <mapping resource="hbn-mappings/Dish.hbm.xml"/>
+    <mapping resource="hbn-mappings/Order.hbm.xml"/>
+
+  </session-factory>
+</hibernate-configuration>

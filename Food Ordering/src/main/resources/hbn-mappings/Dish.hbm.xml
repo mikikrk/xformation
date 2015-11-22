@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.xformation.foodordering.db.menu">
+  <class name="Dish" table="DISH">
+    <id name="id" type="int" column="dish_id">
+      <generator class="identity"/>
+    </id>
+    <property name="name" column="name" type="string" length="50" not-null="true"/>
+    <property name="description" column="description" type="string" length="200"/>
+    <property   name="price">
+      <column     name="price" sql-type="NUMERIC(5,2)"/>
+    </property>
+    <property name="type" column="type" length="10" not-null="true">
+      <type name="org.hibernate.type.EnumType">
+        <param name="enumClass">com.xformation.foodordering.db.menu.DishType</param>
+        <param name="type">12</param>
+      </type>
+    </property>
+  </class>
+
+</hibernate-mapping>

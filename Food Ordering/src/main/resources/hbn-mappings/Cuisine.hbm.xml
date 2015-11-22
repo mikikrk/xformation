@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD//EN"
+  "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.xformation.foodordering.db.menu">
+  <class name="Cuisine" table="CUISINE">
+    <id name="id" type="int" column="cuisine_id">
+      <generator class="identity"/>
+    </id>
+    <property name="name" column="name" type="string" length="20"/>
+    <set name="dishes" cascade="save-update" table="CUISINE_DISH">
+      <key column="cuisine_id"/>
+      <many-to-many column="dish_id" class="Dish"/>
+    </set>
+  </class>
+
+</hibernate-mapping>
